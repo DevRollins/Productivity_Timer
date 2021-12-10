@@ -16,19 +16,9 @@ pen.up()
 pen.setx(0)
 window.bgcolor('black')
 
-        ## Red Colors                       ##Declare Colors for the colorloop
-COLORS = [(1.0, 0.0, 0.0), (1.0, 0.05, 0.00,), (1.0, 0.10, 0.0), (1.0, 0.15, 0.0), (1.0, 0.20, 0.0), (1.0, 0.25, 0.0), (1.0, 0.30, 0.0),
-        (1.0, 0.35, 0.0), (1.0, 0.40, 0.0), (1.0, 0.45, 0.0), (1, 0.50, 0.0), (1.0, 0.55, 0.00),
-        ## Green Colors
-        (0.0, 1.0, 0.0), (0.0, 0.95, 0.05), (0.0, 0.90, 0.10,), (0.0, 0.85, 0.15), (0.0, 0.80, 0.20), (0.0, 0.75, 0.25), (0.0, 0.70, 0.30),
-        (0.0, 0.65, 0.35), (0.0, 0.60, 0.40), (0.0, 0.65, 0.35), (0.0, 0.70, 0.30), (0.0, 0.75, 0.35),
-        ## Blue Colors
-        (0.0, 0.0, 1.0), (0.05, 0.0, 0.95), (0.10, 0.0, 0.90), (0.15, 0.0, 0.85), (0.20, 0.0, 0.80), (0.25, 0.0, 0.75), (0.30, 0.0, 0.70),
-        (0.35, 0.0, 0.65,), (0.40, 0.0, 0.60,), (0.45, 0.0, 0.55), (0.50, 0.0, 0.50), (0.55, 0.0, 0.45)]
-
 def main(): ## Welcome user to the program while initializing variables for later inputs
     worktime = int(window.numinput('Work', 'In minutes, how long would you like to be productive?', minval=1, maxval=9000) * 60)
-    breaktime = int(window.numinput('Break', 'In minutes, how long would you like to rest between productivity?', minval=1, maxval=9000) * 60)
+    breaktime = int(window.numinput('Break', 'In minutes, how long would you like to rest between productivity?', minval=0, maxval=9000) * 60)
     loop = int(window.numinput('Loop', 'How many times would you like to loop through this?', minval=1, maxval=9000))
 
     for i in range(loop): ## Loop that creates a countdown timer 
@@ -68,8 +58,7 @@ def main(): ## Welcome user to the program while initializing variables for late
             if t == 0:
                 winsound.PlaySound("Notification.wav", winsound.SND_FILENAME)
         pen.write("And your break is up! Let's go again!", align='center', font=('Times New Roman', 25))    ## Message notifying user when each break period is up.
-        colorloop()
-
+        break
     time.sleep(2)   
     turtle.Terminator() 
     house()
@@ -79,16 +68,6 @@ def main(): ## Welcome user to the program while initializing variables for late
     artist.clear()
     bye()   ## Close turtle
 
-def colorloop():
-    for i in range(1000):
-        idx = int(i/10)
-        color = COLORS[idx]
-        turtle.color(color)
-        turtle.forward(i)
-        turtle.right(98)
-        turtle.speed(0)
-        if IndexError:
-            break
 
 def house():  ## Use turtle to draw while the user is working. For now, it is a house on a sunny day.
     speed(0) 
