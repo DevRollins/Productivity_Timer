@@ -1,3 +1,6 @@
+------NOTE-----
+This is the first large scale project I have done using Python, which is the first programming language I have learned. 
+
 This program, Productivity Timer, is meant to be a timer that works in intervals. You can use it for many purposes, but it is mostly to made
 to make large periods of tiring or monotonous work more mangeable by including breaks in it. It incorporates sounds to indicate 
 each period's pass and also a visual representation of the timer going down. 
